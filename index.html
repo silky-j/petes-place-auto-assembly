@@ -3,20 +3,28 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Pete's Place Auto Assembly</title>
+<title>Pete's Place Auto Assembly — Custom Cars, Built by Hand</title>
+<meta name="description" content="Northwest Indiana custom auto builder. Ground-up kit cars and replicas, high-end restoration, hands-on mentorship, and consulting from a builder with 40+ years behind the wrench." />
+<link rel="icon" href="assets/img/source/cropped-logo_transparent-removebg-preview-1.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="css/style.css" />
 </head>
 
 <body>
 
-
 <header class="nav">
   <div class="wrap nav-inner">
-    <div class="brand"><span class="mark">P</span> Pete's Place <span style="color:var(--muted);font-weight:600">Auto Assembly</span></div>
+    <a class="brand" href="#top">
+      <img class="brand-logo" src="assets/img/source/cropped-logo_transparent-removebg-preview-1.png" alt="Pete's Place Auto Assembly logo" />
+      <span>Pete's Place <span class="brand-sub">Auto Assembly</span></span>
+    </a>
     <nav class="links">
       <a href="#services">Services</a>
       <a href="#builds">Builds</a>
       <a href="#sale">For Sale</a>
+      <a href="#history">History</a>
       <a href="#about">About Pete</a>
       <a href="#contact">Contact</a>
     </nav>
@@ -25,12 +33,13 @@
 </header>
 
 <!-- HERO -->
-<section class="hero">
-  <div class="hero-bg"></div>
+<section class="hero" id="top">
+  <div class="hero-bg" style="background-image:url('assets/img/source/PP-scaled.jpg')"></div>
+  <div class="hero-scrim"></div>
   <div class="wrap hero-inner">
     <span class="eyebrow">Northwest Indiana · 40+ Years Behind the Wrench</span>
-    <h1>Custom cars, built by hand — sometimes from scratch.</h1>
-    <p class="lead">A hands-on automotive experience. Pete builds, restores, and assembles dream machines — and teaches you to do it alongside him if you want in.</p>
+    <h1>Custom cars, built by hand —<br>sometimes from scratch.</h1>
+    <p class="lead">A hands-on automotive experience. Pete builds, restores, and assembles dream machines — and will teach you to do it right alongside him if you want in.</p>
     <div class="actions">
       <a class="btn" href="#sale">See What's For Sale</a>
       <a class="btn ghost" href="#services">Work With Pete</a>
@@ -44,12 +53,24 @@
     <div class="head">
       <span class="eyebrow">Services</span>
       <h2>However involved you want to be.</h2>
-      <p>From a turnkey build to five days of hands-on mentorship in the garage — you decide how much you turn the wrench.</p>
+      <p>From a turnkey build to five full days of hands-on mentorship in the shop — you decide how much you turn the wrench.</p>
     </div>
     <div class="cards">
-      <div class="card"><div class="ic">01</div><h3>Custom Builds</h3><p>Ground-up assembly of kit cars and replicas, plus high-end restoration of classics.</p></div>
-      <div class="card"><div class="ic">02</div><h3>Hands-On Mentorship</h3><p>One-on-one guidance — from basic skills to a full assembly you complete yourself.</p></div>
-      <div class="card"><div class="ic">03</div><h3>Consulting</h3><p>Engineer &amp; certified toolmaker advising on kit selection, sourcing, and logistics.</p></div>
+      <div class="card">
+        <div class="ic">01</div>
+        <h3>Custom Builds</h3>
+        <p>Ground-up assembly of kit cars and replicas, plus high-end restoration of classics — built to a standard, not a deadline.</p>
+      </div>
+      <div class="card">
+        <div class="ic">02</div>
+        <h3>Hands-On Mentorship</h3>
+        <p>One-on-one guidance, from basic skills to a complete assembly you finish yourself. Packages include multi-day builds and airport pickup for traveling clients.</p>
+      </div>
+      <div class="card">
+        <div class="ic">03</div>
+        <h3>Consulting</h3>
+        <p>A certified toolmaker and graduate engineer advising on kit selection, sourcing, fabrication, and project logistics.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -59,37 +80,43 @@
   <div class="wrap">
     <div class="head">
       <span class="eyebrow">Portfolio</span>
-      <h2>Past &amp; current builds.</h2>
-      <p>A showcase of completed work and machines currently taking shape in the shop.</p>
+      <h2>In the shop right now.</h2>
+      <p>A look at the machines currently taking shape under Pete's hands.</p>
     </div>
     <div class="grid">
-      <div class="proj"><div class="ph">Photo</div><div class="meta"><span class="tag">In Progress</span><h3>1965 Daytona Coupe</h3><span>Replica · ground-up</span></div></div>
-      <div class="proj"><div class="ph">Photo</div><div class="meta"><span class="tag">In Progress</span><h3>GT40 Replica</h3><span>Assembly</span></div></div>
-      <div class="proj"><div class="ph">Photo</div><div class="meta"><span class="tag">Completed</span><h3>Project Name</h3><span>Restoration</span></div></div>
-      <div class="proj"><div class="ph">Photo</div><div class="meta"><span class="tag">Completed</span><h3>Project Name</h3><span>Custom build</span></div></div>
-      <div class="proj"><div class="ph">Photo</div><div class="meta"><span class="tag">Completed</span><h3>Project Name</h3><span>Restoration</span></div></div>
-      <div class="proj"><div class="ph">Photo</div><div class="meta"><span class="tag">Completed</span><h3>Project Name</h3><span>Custom build</span></div></div>
+      <article class="proj">
+        <button class="proj-img" data-full="assets/img/source/PP-scaled.jpg" style="background-image:url('assets/img/source/PP-scaled.jpg')" aria-label="View 1965 Daytona Coupe build"></button>
+        <div class="meta"><span class="tag">In Progress</span><h3>1965 Daytona Coupe</h3><span>Replica · ground-up build</span></div>
+      </article>
+      <article class="proj">
+        <button class="proj-img" data-full="assets/img/source/20211116_145406-2-1-scaled.jpg" style="background-image:url('assets/img/source/20211116_145406-2-1-scaled.jpg')" aria-label="View hand-fabricated Daytona body panels"></button>
+        <div class="meta"><span class="tag">From Scratch</span><h3>Hand-Formed Bodywork</h3><span>Type 65 Daytona · sheet-metal fabrication</span></div>
+      </article>
+      <article class="proj">
+        <button class="proj-img" data-full="assets/img/source/20230710_172424-scaled.jpg" style="background-image:url('assets/img/source/20230710_172424-scaled.jpg')" aria-label="View GT40 Replica build"></button>
+        <div class="meta"><span class="tag">In Progress</span><h3>GT40 Replica</h3><span>Assembly</span></div>
+      </article>
     </div>
   </div>
 </section>
 
 <!-- FOR SALE -->
-<section class="block" id="sale">
+<section class="block alt" id="sale">
   <div class="wrap">
     <div class="head">
       <span class="eyebrow">For Sale</span>
       <h2>Available now.</h2>
     </div>
     <div class="sale">
-      <div class="ph">Featured Vehicle Photo</div>
+      <button class="sale-img" data-full="assets/img/source/20200523_144259-1-scaled.jpg" style="background-image:url('assets/img/source/20200523_144259-1-scaled.jpg')" aria-label="View 1932 Ford Roadster"></button>
       <div>
-        <div class="price"><small>Asking</small>$ —</div>
-        <h3 style="margin:14px 0 4px;font-size:1.5rem;">1932 Ford Roadster</h3>
-        <p style="color:var(--muted)">Short description of the build, drivetrain, and finish goes here.</p>
+        <div class="price"><small>Asking</small>Inquire</div>
+        <h3 class="sale-title">1932 Ford Roadster</h3>
+        <p class="muted">A finished, show-quality hot rod built to drive. Reach out for full specs, drivetrain details, and price.</p>
         <div class="specs">
-          <div><b>—</b>Engine</div>
-          <div><b>—</b>Mileage</div>
-          <div><b>—</b>Year</div>
+          <div><b>Built</b>Custom hot rod</div>
+          <div><b>Status</b>Turnkey</div>
+          <div><b>Title</b>Clean</div>
         </div>
         <a class="btn" href="#contact">Inquire About This Car</a>
       </div>
@@ -97,16 +124,45 @@
   </div>
 </section>
 
+<!-- HISTORY -->
+<section class="block" id="history">
+  <div class="wrap">
+    <div class="head">
+      <span class="eyebrow">Pete's Garage History</span>
+      <h2>It started at thirteen.</h2>
+      <p>Pete's first car was a 1970&frac12; Camaro he bought at 13 — pulled the engine, rebuilt it, and "sold it before I knew what I was doing." Five decades of builds later, here's the road that got him here.</p>
+    </div>
+    <div class="gallery">
+      <button class="shot" data-full="assets/img/source/Slide2-1.jpg" style="background-image:url('assets/img/source/Slide2-1.jpg')" aria-label="1970 1/2 Camaro"></button>
+      <button class="shot" data-full="assets/img/source/Slide4-1.jpg" style="background-image:url('assets/img/source/Slide4-1.jpg')" aria-label="1970 Oldsmobile 442"></button>
+      <button class="shot" data-full="assets/img/source/Slide5.jpg" style="background-image:url('assets/img/source/Slide5.jpg')" aria-label="1970 Oldsmobile 442"></button>
+      <button class="shot" data-full="assets/img/source/Slide6-1.jpg" style="background-image:url('assets/img/source/Slide6-1.jpg')" aria-label="1973 Oldsmobile Cutlass"></button>
+      <button class="shot" data-full="assets/img/source/Slide7-1.jpg" style="background-image:url('assets/img/source/Slide7-1.jpg')" aria-label="1977 Buick Regal"></button>
+      <button class="shot" data-full="assets/img/source/Slide8-1.jpg" style="background-image:url('assets/img/source/Slide8-1.jpg')" aria-label="1977 Buick Regal"></button>
+      <button class="shot" data-full="assets/img/source/Slide9-1.jpg" style="background-image:url('assets/img/source/Slide9-1.jpg')" aria-label="1982 Datsun 280ZX Turbo"></button>
+      <button class="shot" data-full="assets/img/source/Slide10-1.jpg" style="background-image:url('assets/img/source/Slide10-1.jpg')" aria-label="1987 Pontiac Sunbird"></button>
+      <button class="shot" data-full="assets/img/source/Slide11-1.jpg" style="background-image:url('assets/img/source/Slide11-1.jpg')" aria-label="1981 Chevrolet Corvette"></button>
+      <button class="shot" data-full="assets/img/source/Slide12-1.jpg" style="background-image:url('assets/img/source/Slide12-1.jpg')" aria-label="1981 Chevrolet Corvette"></button>
+      <button class="shot" data-full="assets/img/source/Slide14.jpg" style="background-image:url('assets/img/source/Slide14.jpg')" aria-label="1984 Oldsmobile Cutlass Hurst"></button>
+      <button class="shot" data-full="assets/img/source/Slide15.jpg" style="background-image:url('assets/img/source/Slide15.jpg')" aria-label="1984 Oldsmobile Cutlass Hurst"></button>
+      <button class="shot" data-full="assets/img/source/Slide16.jpg" style="background-image:url('assets/img/source/Slide16.jpg')" aria-label="1983 Mercedes 380SL"></button>
+    </div>
+  </div>
+</section>
+
 <!-- ABOUT -->
-<section class="block" id="about">
+<section class="block alt" id="about">
   <div class="wrap about">
-    <div class="ph">Photo of Pete</div>
+    <div class="about-photos">
+      <button class="ph-img tall" data-full="assets/img/source/20200119_074634-1-scaled.jpg" style="background-image:url('assets/img/source/20200119_074634-1-scaled.jpg')" aria-label="Pete in the shop"></button>
+      <button class="ph-img" data-full="assets/img/source/20200116_135026-1-scaled.jpg" style="background-image:url('assets/img/source/20200116_135026-1-scaled.jpg')" aria-label="A young Pete rebuilding an engine"></button>
+    </div>
     <div>
       <span class="eyebrow">About Pete</span>
-      <h2 style="font-size:2rem;margin:8px 0 0;">Four decades, one obsession.</h2>
-      <p>Born and raised in small-town Indiana, Pete has been racing, fixing, and building since boyhood. A certified toolmaker and graduate engineer with 40+ years in the stamping industry alongside automotive manufacturers.</p>
-      <p>His 3-bay garage is now home to high-end restoration and ground-up assembly — and to anyone who wants to learn the craft hands-on.</p>
-      <a class="btn ghost" href="#" style="margin-top:18px">Connect on LinkedIn</a>
+      <h2>Four decades, one obsession.</h2>
+      <p>Born and raised in small-town Indiana, Pete was racing by 10 and owned three cars by 16. A certified toolmaker and graduate engineer, he spent 40+ years in the stamping industry working alongside automotive manufacturers.</p>
+      <p>After reading about kit cars in 1983, he set out to build one himself — and never stopped. His three-bay garage is now home to high-end restoration and ground-up assembly, and to anyone who wants to learn the craft hands-on.</p>
+      <a class="btn ghost" href="https://www.linkedin.com" target="_blank" rel="noopener">Connect on LinkedIn</a>
     </div>
   </div>
 </section>
@@ -116,31 +172,40 @@
   <div class="wrap contact">
     <div>
       <span class="eyebrow">Contact</span>
-      <h2 style="font-size:2rem;margin:8px 0 16px;">Tell Pete about your dream build.</h2>
-      <form class="form" onsubmit="return false;">
-        <input placeholder="Your name" />
-        <input placeholder="Email" />
-        <input placeholder="Phone (optional)" />
-        <textarea placeholder="What are you looking to build, buy, or learn?"></textarea>
+      <h2>Tell Pete about your dream build.</h2>
+      <p class="muted">Looking to buy, build, or learn? Send a note and Pete will get back to you.</p>
+      <form class="form" id="contact-form">
+        <input id="cf-name" placeholder="Your name" required />
+        <input id="cf-email" type="email" placeholder="Email" required />
+        <input id="cf-phone" placeholder="Phone (optional)" />
+        <textarea id="cf-msg" placeholder="What are you looking to build, buy, or learn?" required></textarea>
         <button class="btn" type="submit">Send Message</button>
       </form>
     </div>
     <div class="info">
-      <p><b>Email</b><br>contact@petesplaceautoassembly.com</p>
-      <p><b>Phone</b><br>— (to add)</p>
-      <p><b>Shop</b><br>Northwest Indiana · 3-bay garage</p>
+      <p><b>Email</b><br><a href="mailto:contact@petesplaceautoassembly.com">contact@petesplaceautoassembly.com</a></p>
+      <p><b>Shop</b><br>Northwest Indiana · three-bay garage</p>
       <p><b>Hours</b><br>By appointment</p>
-      <div class="ph" style="height:200px;margin-top:14px;">Map / Garage Photo</div>
+      <p><b>Traveling in?</b><br>Airport pickup available for multi-day build clients.</p>
     </div>
   </div>
 </section>
 
 <footer>
   <div class="wrap foot-inner">
-    <div>© Pete's Place Auto Assembly</div>
+    <div>© <span id="year"></span> Pete's Place Auto Assembly</div>
     <div>A Hands-On Automotive Experience</div>
   </div>
 </footer>
 
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" aria-hidden="true">
+  <button class="lb-close" id="lb-close" aria-label="Close">&times;</button>
+  <button class="lb-nav lb-prev" id="lb-prev" aria-label="Previous">&#8249;</button>
+  <img class="lb-img" id="lb-img" alt="" />
+  <button class="lb-nav lb-next" id="lb-next" aria-label="Next">&#8250;</button>
+</div>
+
+<script src="js/main.js"></script>
 </body>
 </html>
