@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Pete's Place Auto Assembly — Mock</title>
+<style>
+  :root {
+    --bg: #0e0f12;
+    --panel: #16181d;
+    --panel-2: #1d2026;
+    --ink: #f3f4f6;
+    --muted: #9aa1ac;
+    --line: #2a2e36;
+    --accent: #d6342b;       /* racing red */
+    --accent-2: #f0a500;     /* amber */
+    --radius: 14px;
+    --maxw: 1140px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--ink); line-height: 1.55; -webkit-font-smoothing: antialiased; }
+  a { color: inherit; text-decoration: none; }
+  .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
+  .eyebrow { text-transform: uppercase; letter-spacing: .18em; font-size: .72rem; color: var(--accent-2); font-weight: 700; }
+  .ph { /* placeholder image block */
+    background:
+      repeating-linear-gradient(45deg, #20242c 0 12px, #1a1d23 12px 24px);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    display: flex; align-items: center; justify-content: center;
+    color: #6b7280; font-size: .8rem; letter-spacing: .1em; text-transform: uppercase;
+  }
+  .btn {
+    display: inline-block; padding: 13px 22px; border-radius: 10px; font-weight: 700;
+    background: var(--accent); color: #fff; border: 1px solid transparent; cursor: pointer;
+    transition: transform .12s ease, filter .12s ease;
+  }
+  .btn:hover { filter: brightness(1.08); transform: translateY(-1px); }
+  .btn.ghost { background: transparent; border-color: var(--line); color: var(--ink); }
+
+  /* NAV */
+  header.nav { position: sticky; top: 0; z-index: 20; backdrop-filter: blur(8px);
+    background: rgba(14,15,18,.82); border-bottom: 1px solid var(--line); }
+  .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 68px; }
+  .brand { display: flex; align-items: center; gap: 12px; font-weight: 800; letter-spacing: .02em; }
+  .brand .mark { width: 34px; height: 34px; border-radius: 8px; background: linear-gradient(135deg, var(--accent), #7a1a16); display:flex; align-items:center; justify-content:center; font-weight:900; }
+  nav.links { display: flex; gap: 26px; font-size: .92rem; color: var(--muted); font-weight: 600; }
+  nav.links a:hover { color: var(--ink); }
+  .nav .cta { display: flex; gap: 12px; align-items: center; }
+  @media (max-width: 760px){ nav.links { display: none; } }
+
+  /* HERO */
+  .hero { position: relative; overflow: hidden; border-bottom: 1px solid var(--line); }
+  .hero-bg { position:absolute; inset:0;
+    background:
+      radial-gradient(900px 500px at 75% -10%, rgba(214,52,43,.25), transparent 60%),
+      repeating-linear-gradient(45deg, #15171c 0 14px, #121419 14px 28px);
+    opacity:.9; }
+  .hero-inner { position: relative; padding: 96px 0 84px; max-width: 720px; }
+  .hero h1 { font-size: clamp(2.4rem, 5.4vw, 4rem); line-height: 1.02; font-weight: 900; letter-spacing: -0.02em; margin: 14px 0 18px; }
+  .hero p.lead { font-size: 1.18rem; color: var(--muted); max-width: 560px; }
+  .hero .actions { margin-top: 30px; display: flex; gap: 14px; flex-wrap: wrap; }
+
+  /* GENERIC SECTION */
+  section.block { padding: 76px 0; border-bottom: 1px solid var(--line); }
+  .head { max-width: 640px; margin-bottom: 34px; }
+  .head h2 { font-size: clamp(1.7rem, 3vw, 2.3rem); font-weight: 800; letter-spacing: -.01em; margin: 8px 0 10px; }
+  .head p { color: var(--muted); }
+
+  /* SERVICES */
+  .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+  .card { background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); padding: 26px; }
+  .card .ic { width: 42px; height: 42px; border-radius: 10px; background: var(--panel-2); border:1px solid var(--line); display:flex; align-items:center; justify-content:center; margin-bottom: 16px; color: var(--accent-2); font-weight:900; }
+  .card h3 { font-size: 1.12rem; margin-bottom: 8px; }
+  .card p { color: var(--muted); font-size: .95rem; }
+  @media (max-width: 860px){ .cards { grid-template-columns: 1fr; } }
+
+  /* PROJECTS GRID */
+  .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+  .proj { border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; background: var(--panel); }
+  .proj .ph { height: 200px; border: 0; border-bottom: 1px solid var(--line); border-radius: 0; }
+  .proj .meta { padding: 16px 18px; }
+  .proj .meta .tag { font-size: .7rem; text-transform: uppercase; letter-spacing: .14em; color: var(--accent-2); font-weight: 700; }
+  .proj .meta h3 { margin: 6px 0 4px; font-size: 1.05rem; }
+  .proj .meta span { color: var(--muted); font-size: .9rem; }
+  @media (max-width: 860px){ .grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 560px){ .grid { grid-template-columns: 1fr; } }
+
+  /* FOR SALE strip */
+  .sale { display: grid; grid-template-columns: 1.1fr .9fr; gap: 26px; align-items: center; }
+  .sale .ph { height: 320px; }
+  .price { font-size: 1.8rem; font-weight: 900; }
+  .price small { display:block; font-size:.75rem; letter-spacing:.14em; text-transform:uppercase; color: var(--muted); font-weight:700; }
+  .specs { display:flex; gap: 22px; margin: 18px 0 24px; color: var(--muted); font-size: .9rem; }
+  .specs b { display:block; color: var(--ink); font-size: 1.05rem; }
+  @media (max-width: 760px){ .sale { grid-template-columns: 1fr; } }
+
+  /* ABOUT */
+  .about { display: grid; grid-template-columns: .8fr 1.2fr; gap: 30px; align-items: center; }
+  .about .ph { height: 340px; }
+  .about p { color: var(--muted); margin-top: 14px; }
+  @media (max-width: 760px){ .about { grid-template-columns: 1fr; } }
+
+  /* CONTACT */
+  .contact { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+  .form { display: grid; gap: 12px; }
+  .form input, .form textarea { width:100%; background: var(--panel); border:1px solid var(--line); color: var(--ink); padding: 13px 14px; border-radius: 10px; font-size: .95rem; }
+  .form textarea { min-height: 120px; resize: vertical; }
+  .info p { color: var(--muted); margin: 10px 0; }
+  .info b { color: var(--ink); }
+  @media (max-width: 760px){ .contact { grid-template-columns: 1fr; } }
+
+  footer { padding: 40px 0; color: var(--muted); font-size: .85rem; }
+  .foot-inner { display:flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+
+  .note { background: var(--panel-2); border:1px dashed var(--line); color: var(--muted); font-size:.8rem; padding: 10px 16px; text-align:center; }
+</style>
+</head>
+<body>
+
+<div class="note">ILLUSTRATIVE MOCK — layout &amp; structure only. Placeholder text/images. Real content + photos come next.</div>
+
+<header class="nav">
+  <div class="wrap nav-inner">
+    <div class="brand"><span class="mark">P</span> Pete's Place <span style="color:var(--muted);font-weight:600">Auto Assembly</span></div>
+    <nav class="links">
+      <a href="#services">Services</a>
+      <a href="#builds">Builds</a>
+      <a href="#sale">For Sale</a>
+      <a href="#about">About Pete</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="cta"><a class="btn" href="#contact">Start a Build</a></div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="wrap hero-inner">
+    <span class="eyebrow">Northwest Indiana · 40+ Years Behind the Wrench</span>
+    <h1>Custom cars, built by hand — sometimes from scratch.</h1>
+    <p class="lead">A hands-on automotive experience. Pete builds, restores, and assembles dream machines — and teaches you to do it alongside him if you want in.</p>
+    <div class="actions">
+      <a class="btn" href="#sale">See What's For Sale</a>
+      <a class="btn ghost" href="#services">Work With Pete</a>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="block" id="services">
+  <div class="wrap">
+    <div class="head">
+      <span class="eyebrow">Services</span>
+      <h2>However involved you want to be.</h2>
+      <p>From a turnkey build to five days of hands-on mentorship in the garage — you decide how much you turn the wrench.</p>
+    </div>
+    <div class="cards">
+      <div class="card"><div class="ic">01</div><h3>Custom Builds</h3><p>Ground-up assembly of kit cars and replicas, plus high-end restoration of classics.</p></div>
+      <div class="card"><div class="ic">02</div><h3>Hands-On Mentorship</h3><p>One-on-one guidance — from basic skills to a full assembly you complete yourself.</p></div>
+      <div class="card"><div class="ic">03</div><h3>Consulting</h3><p>Engineer &amp; certified toolmaker advising on kit selection, sourcing, and logistics.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- BUILDS -->
+<section class="block" id="builds">
+  <div class="wrap">
+    <div class="head">
+      <span class="eyebrow">Portfolio</span>
+      <h2>Past &amp; current builds.</h2>
+      <p>A showcase of completed work and machines currently taking shape in the shop.</p>
+    </div>
+    <div class="grid">
+      <div class="proj"><div class="ph">Photo</div><div class="meta"><span class="tag">In Progress</span><h3>1965 Daytona Coupe</h3><span>Replica · ground-up</span></div></div>
+      <div class="proj"><div class="ph">Photo</div><div class="meta"><span class="tag">In Progress</span><h3>GT40 Replica</h3><span>Assembly</span></div></div>
+      <div class="proj"><div class="ph">Photo</div><div class="meta"><span class="tag">Completed</span><h3>Project Name</h3><span>Restoration</span></div></div>
+      <div class="proj"><div class="ph">Photo</div><div class="meta"><span class="tag">Completed</span><h3>Project Name</h3><span>Custom build</span></div></div>
+      <div class="proj"><div class="ph">Photo</div><div class="meta"><span class="tag">Completed</span><h3>Project Name</h3><span>Restoration</span></div></div>
+      <div class="proj"><div class="ph">Photo</div><div class="meta"><span class="tag">Completed</span><h3>Project Name</h3><span>Custom build</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FOR SALE -->
+<section class="block" id="sale">
+  <div class="wrap">
+    <div class="head">
+      <span class="eyebrow">For Sale</span>
+      <h2>Available now.</h2>
+    </div>
+    <div class="sale">
+      <div class="ph">Featured Vehicle Photo</div>
+      <div>
+        <div class="price"><small>Asking</small>$ —</div>
+        <h3 style="margin:14px 0 4px;font-size:1.5rem;">1932 Ford Roadster</h3>
+        <p style="color:var(--muted)">Short description of the build, drivetrain, and finish goes here.</p>
+        <div class="specs">
+          <div><b>—</b>Engine</div>
+          <div><b>—</b>Mileage</div>
+          <div><b>—</b>Year</div>
+        </div>
+        <a class="btn" href="#contact">Inquire About This Car</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="block" id="about">
+  <div class="wrap about">
+    <div class="ph">Photo of Pete</div>
+    <div>
+      <span class="eyebrow">About Pete</span>
+      <h2 style="font-size:2rem;margin:8px 0 0;">Four decades, one obsession.</h2>
+      <p>Born and raised in small-town Indiana, Pete has been racing, fixing, and building since boyhood. A certified toolmaker and graduate engineer with 40+ years in the stamping industry alongside automotive manufacturers.</p>
+      <p>His 3-bay garage is now home to high-end restoration and ground-up assembly — and to anyone who wants to learn the craft hands-on.</p>
+      <a class="btn ghost" href="#" style="margin-top:18px">Connect on LinkedIn</a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="block" id="contact">
+  <div class="wrap contact">
+    <div>
+      <span class="eyebrow">Contact</span>
+      <h2 style="font-size:2rem;margin:8px 0 16px;">Tell Pete about your dream build.</h2>
+      <form class="form" onsubmit="return false;">
+        <input placeholder="Your name" />
+        <input placeholder="Email" />
+        <input placeholder="Phone (optional)" />
+        <textarea placeholder="What are you looking to build, buy, or learn?"></textarea>
+        <button class="btn" type="submit">Send Message</button>
+      </form>
+    </div>
+    <div class="info">
+      <p><b>Email</b><br>contact@petesplaceautoassembly.com</p>
+      <p><b>Phone</b><br>— (to add)</p>
+      <p><b>Shop</b><br>Northwest Indiana · 3-bay garage</p>
+      <p><b>Hours</b><br>By appointment</p>
+      <div class="ph" style="height:200px;margin-top:14px;">Map / Garage Photo</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot-inner">
+    <div>© Pete's Place Auto Assembly</div>
+    <div>A Hands-On Automotive Experience</div>
+  </div>
+</footer>
+
+</body>
+</html>
